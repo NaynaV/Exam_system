@@ -3,71 +3,153 @@ package com.exam.Exam;
 import javax.security.auth.Subject;
 import java.util.Date;
 
-public class Project extends subject
-{
-   // private Date projectSubmmaission;
-    private float projectTotalMarks;
-    private float projectObtainedMarks;
-    private float projectPercentage;
-    private String projectResult;
+public class Project extends Exam {
 
+    private float marks[];
+    private float totalMarks;
+    private float percentage;
+    private String result;
 
-    public float getProjectTotalMarks() {
-        return projectTotalMarks;
+    private String projectTitle;
+    private int noOfGroupMember;
+    private String nameOfGroup;
+
+    public float[] getMarks() {
+        return marks;
     }
 
-    public void setProjectTotalMarks(float projectTotalMarks) {
-        this.projectTotalMarks = projectTotalMarks;
+    public void setMarks(float[] marks) {
+        this.marks = marks;
     }
 
-    public float getProjectObtainedMarks() {
-        return projectObtainedMarks;
+    public float getTotalMarks() {
+        return totalMarks;
     }
 
-    public void setProjectObtainedMarks(float projectObtainedMarks) {
-        this.projectObtainedMarks = projectObtainedMarks;
+    public void setTotalMarks(float totalMarks) {
+        this.totalMarks = totalMarks;
     }
 
-    public float getProjectPercentage() {
-        return projectPercentage;
+    public float getPercentage() {
+        return percentage;
     }
 
-    public void setProjectPercentage(float projectPercentage) {
-        this.projectPercentage = projectPercentage;
+    public void setPercentage(float percentage) {
+        this.percentage = percentage;
     }
 
-    public String getProjectResult() {
-        return projectResult;
+    public String getResult() {
+        return result;
     }
 
-    public void setProjectResult(String projectResult) {
-        this.projectResult = projectResult;
+    public void setResult(String result) {
+        this.result = result;
     }
 
-    @Override
-    public String toString() {
-        return "Project{" +
-                "projectTotalMarks=" + projectTotalMarks +
-                ", projectObtainedMarks=" + projectObtainedMarks +
-                ", projectPercentage=" + projectPercentage +
-                ", projectResult='" + projectResult + '\'' +
-                '}';
+    public String getProjectTitle() {
+        return projectTitle;
     }
 
-    public void displayProjectInfo()
-    {
-        System.out.println("-------Project Details-----");
-        System.out.println("Subject ID : " +getSubjectId());
-        System.out.println("Subject Name : " +getSubjectName());
-        System.out.println("Course Name : "+getCourseName());
-        System.out.println("Submission date " +getExamDate());
-        System.out.println("Exam type : " +getExamType());
-        System.out.println("Weightage :" +getWeightage() );
-        System.out.println("Total Marks :" +getProjectTotalMarks());
-        System.out.println("Obtained Marks :" +getProjectObtainedMarks());
-        System.out.println("Percentage :" +getProjectPercentage());
-        System.out.println("Reuslt :" +getProjectResult());
-      //  System.out.println("Student" +getSubjectId());
+    public void setProjectTitle(String projectTitle) {
+        this.projectTitle = projectTitle;
+    }
+
+    public int getNoOfGroupMember() {
+        return noOfGroupMember;
+    }
+
+    public void setNoOfGroupMember(int noOfGroupMember) {
+        this.noOfGroupMember = noOfGroupMember;
+    }
+
+    public String getNameOfGroup() {
+        return nameOfGroup;
+    }
+
+    public void setNameOfGroup(String nameOfGroup) {
+        this.nameOfGroup = nameOfGroup;
+    }
+
+    public void calculateTotal() {
+
+        this.totalMarks = 0;
+        System.out.println(marks[0]);
+        for (int i = 0; i < this.marks.length; i++) {
+            this.totalMarks = this.totalMarks + marks[i];
+
+        }
+    }
+
+
+    public void calculatePercentage() {
+        this.percentage = 0;
+        percentage = this.totalMarks / this.marks.length;
 
     }
-}
+
+    public void calculateresult() {
+
+        int passedSubj = 0;
+        for (int i = 0; i < marks.length; i++) {
+            if (marks[i] >= 50.0f) {
+                passedSubj++;
+            }
+        }
+        if (passedSubj <= 2) {
+
+            this.result = "Fail";
+        } else {
+            if (this.percentage >= 94) {
+                this.result = "A+";
+            } else if (this.percentage > 87) {
+                this.result = "A";
+            } else if (this.percentage > 80) {
+                this.result = "A-";
+            } else if (this.percentage > 77) {
+                this.result = "B+";
+
+            } else if (this.percentage > 73) {
+                this.result = "B";
+
+            } else if (this.percentage > 70) {
+                this.result = "B-";
+
+            } else if (this.percentage > 67) {
+                this.result = "C+";
+
+            } else if (this.percentage > 63) {
+                this.result = "c";
+
+            } else if (this.percentage > 60) {
+                this.result = "c-";
+
+            } else if (this.percentage > 50) {
+                this.result = "D";
+
+            } else {
+                this.result = "E";
+
+            }
+        }
+
+    }
+        public void displayProjectinfo ()
+        {
+            System.out.println("-----Project Info-----");
+
+            System.out.println("Exam Type :" + getExamType());
+            System.out.println("Exam Date :" + getExamDate());
+            System.out.println("Course Name :" + getCourseName());
+            System.out.println("Subjects :" + getSubjectsName());
+            System.out.println("Marks :" + getMarks());
+            System.out.println("Toatl Marks :" + getTotalMarks());
+            System.out.println("Percenatage :" + getPercentage());
+            System.out.println("Result :" + getResult());
+            System.out.println("Student Name " + getStudentName());
+            System.out.println("Project Title :" + getProjectTitle());
+            System.out.println("Number of Student in Group :" + getNoOfGroupMember());
+            System.out.println("Group Name :" + getNameOfGroup());
+
+
+        }
+    }
