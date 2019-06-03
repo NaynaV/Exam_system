@@ -1,9 +1,12 @@
 package com.exam;
 
+import com.exam.Exam.MidExam;
 import com.exam.Exam.Project;
 import com.exam.User.Faculty;
 import com.exam.User.Student;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,8 +14,16 @@ import java.util.Scanner;
 
 public class ExamSystem
 {
-            public static void main(String args[])
-            {
+            public static void main(String args[]) throws IOException {
+
+
+                String data = "Test data";
+
+                FileOutputStream out = new FileOutputStream("C://Users//Kabir//testFile2.txt");
+
+                out.write(data.getBytes());
+
+
 
                /* Scanner myObj = new Scanner(System.in);  // Create a Scanner object
                 System.out.println("Enter username");
@@ -21,6 +32,7 @@ public class ExamSystem
                 System.out.println("Username is: " + UserId); */
 
                 Student s1 = new Student();
+
                 s1.setUserId(1);
                 s1.setFname("Naina");
                 s1.setLname("Vaghasiya");
@@ -87,9 +99,22 @@ public class ExamSystem
 
 
                 Project pj = new Project();
-                pj.setSubjectId(1);
-                pj.setSubjectName("JAVA");
+                pj.setStudentName("Naina");
+                pj.setExamType("Project");
                 pj.setCourseName("MADT");
+                pj.setProjectTitle("Exam System");
+                pj.setNoOfGroupMember(2);
+                pj.setNameOfGroup("Code Chasers");
+
+                String Subjects[] = {"nini", "unix", "Swift"};
+
+
+                pj.setSubjectsName(Subjects);
+
+                float Marks[] = {25,27,22};
+                pj.setMarks(Marks);
+
+
                 SimpleDateFormat sdf4 = new SimpleDateFormat("dd-M-yyyy");
                 String dateInString4 = "31-08-1982";
 
@@ -100,18 +125,49 @@ public class ExamSystem
                     e.printStackTrace();
                 }
 
-                pj.setExamType("Project");
-                pj.setWeightage(30);
-                pj.setProjectTotalMarks(100);
-                pj.setProjectObtainedMarks(70);
-                pj.setProjectPercentage(65.5f);
-                pj.setProjectResult("A");
-             //   pj.getSubjectId(1);
-                pj.displayProjectInfo();
+                pj.calculateTotal();
+                pj.calculatePercentage();
+                pj.setResult();
+                pj.displayProjectinfo();
 
 
+
+                MidExam me = new MidExam();
+                me.setStudentName("Naina");
+                me.setExamType("Project");
+                me.setCourseName("MADT");
+              me.setWeightageMarks(40);
+
+                String SubjectsME[] = {"nini", "unix", "Swift"};
+
+
+                pj.setSubjectsName(SubjectsME);
+
+                float MarksME[] = {25,27,22};
+                pj.setMarks(MarksME);
+
+
+                SimpleDateFormat sdf5 = new SimpleDateFormat("dd-M-yyyy");
+                String dateInString5 = "31-08-1982";
+
+                try {
+                    Date pjJoinDate = sdf5.parse(dateInString5);
+                    me.setExamDate(pjJoinDate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                me.calculateTotal();
+                me.calculatePercentage();
+                me.setResult();
+                me.displayMidexaminfo();
+
+
+
+
+
+                out.close();
             }
-
 
 
 }
