@@ -105,11 +105,7 @@ public class ExamSystem
                 pj.setProjectTitle("Exam System");
                 pj.setNoOfGroupMember(2);
                 pj.setNameOfGroup("Code Chasers");
-
-                String Subjects[] = {"nini", "unix", "Swift"};
-
-
-                pj.setSubjectsName(Subjects);
+                pj.getSubjectsName();
 
                 float Marks[] = {25,27,22};
                 pj.setMarks(Marks);
@@ -138,11 +134,7 @@ public class ExamSystem
                 me.setCourseName("MADT");
               me.setWeightageMarks(40);
 
-                String SubjectsME[] = {"nini", "unix", "Swift"};
-
-
-                me.setSubjectsName(SubjectsME);
-
+               me.getSubjectsName();
                 float MarksMid[] = {25,27,22};
                 me.setMarksMid(MarksMid);
 
@@ -161,8 +153,6 @@ public class ExamSystem
                 me.calculatePercentageMid();
                 me.calculateresultMid();
                 me.displayMidexaminfo();
-
-
 
 
 

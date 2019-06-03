@@ -140,7 +140,7 @@ public class Project extends Exam {
             System.out.println("Exam Type :" + getExamType());
             System.out.println("Exam Date :" + getExamDate());
             System.out.println("Course Name :" + getCourseName());
-            System.out.println("Subjects :" + getSubjectsName());
+            getSubjectsName();
             System.out.println("Marks :" + getMarks());
             System.out.println("Toatl Marks :" + getTotalMarks());
             System.out.println("Percenatage :" + getPercentage());

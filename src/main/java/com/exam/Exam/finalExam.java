@@ -61,7 +61,79 @@ public class finalExam extends Exam
                 ", resultFinal='" + resultFinal + '\'' +
                 '}';
     }
-/*  public void displayFinalexaminfo() {
+
+
+
+
+    public void calculateTotalMid()
+    {
+
+        this.totalMarksFinal = 0;
+        System.out.println(marksFinal[0]);
+        for (int i = 0; i < this.marksFinal.length; i++) {
+            this.totalMarksFinal = this.totalMarksFinal + marksFinal[i];
+
+        }
+    }
+
+
+    public void calculatePercentageMid() {
+        this.percentageFinal = 0;
+        percentageFinal = this.totalMarksFinal / this.marksFinal.length;
+
+    }
+
+    public void calculateresultMid() {
+
+        int passedSubj = 0;
+        for (int i = 0; i < marksFinal.length; i++) {
+            if (marksFinal[i] >= 50.0f) {
+                passedSubj++;
+            }
+        }
+        if (passedSubj <= 2) {
+
+            this.resultFinal = "Fail";
+        } else {
+            if (this.percentageFinal >= 94) {
+                this.resultFinal = "A+";
+            } else if (this.percentageFinal > 87) {
+                this.resultFinal = "A";
+            } else if (this.percentageFinal > 80) {
+                this.resultFinal = "A-";
+            } else if (this.percentageFinal > 77) {
+                this.resultFinal = "B+";
+
+            } else if (this.percentageFinal > 73) {
+                this.resultFinal = "B";
+
+            } else if (this.percentageFinal > 70) {
+                this.resultFinal = "B-";
+
+            } else if (this.percentageFinal> 67) {
+                this.resultFinal = "C+";
+
+            } else if (this.percentageFinal > 63) {
+                this.resultFinal = "c";
+
+            } else if (this.percentageFinal > 60) {
+                this.resultFinal = "c-";
+
+            } else if (this.percentageFinal > 50) {
+                this.resultFinal = "D";
+
+            } else {
+                this.resultFinal = "E";
+
+            }
+        }
+
+    }
+
+
+
+
+    public void displayFinalexaminfo() {
         System.out.println("-----Finalexam Info-----");
 
         System.out.println("Exam Type :" + getExamType());
@@ -69,14 +141,14 @@ public class finalExam extends Exam
         System.out.println("Course Name :" + getCourseName());
         System.out.println("Subjects :" + getSubjectsName());
         System.out.println("Weighatge :" + getWeightageMarks());
-        System.out.println("Marks :" + getMarks());
-        System.out.println("Toatl Marks :" + getTotalMarks());
-        System.out.println("Percenatage :" + getPercentage());
-        System.out.println("Result :" + getResult());
+        System.out.println("Marks :" + getMarksFinal());
+        System.out.println("Toatl Marks :" + getTotalMarksFinal());
+        System.out.println("Percenatage :" + getPercentageFinal());
+        System.out.println("Result :" + getResultFinal());
         System.out.println("Student Name " + getStudentName());
 
 
-    }*/
+    }
 
 
 }

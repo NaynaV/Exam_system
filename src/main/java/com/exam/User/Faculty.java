@@ -7,18 +7,20 @@ public class Faculty extends UserClass {
 
     private String facultyDepartment;
     private String facultyDesignation;
-
-    public String getFacultySubjects() {
-        return facultySubjects;
-    }
-
-    public void setFacultySubjects(String facultySubjects) {
-        this.facultySubjects = facultySubjects;
-    }
-
     private String facultySubjects;
     private float facultySalary;
     private Date facultyJoindate;
+
+
+    public String getFacultySubjects()
+    {
+        return facultySubjects;
+    }
+
+    public void setFacultySubjects(String facultySubjects)
+    {
+        this.facultySubjects = facultySubjects;
+    }
 
 
     public String getFacultyDepartment() {
