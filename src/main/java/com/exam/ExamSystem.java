@@ -127,24 +127,24 @@ public class ExamSystem
 
                 pj.calculateTotal();
                 pj.calculatePercentage();
-                pj.setResult();
+                pj.calculateresult();
                 pj.displayProjectinfo();
 
 
 
                 MidExam me = new MidExam();
                 me.setStudentName("Naina");
-                me.setExamType("Project");
+                me.setExamType("Mid Exam");
                 me.setCourseName("MADT");
               me.setWeightageMarks(40);
 
                 String SubjectsME[] = {"nini", "unix", "Swift"};
 
 
-                pj.setSubjectsName(SubjectsME);
+                me.setSubjectsName(SubjectsME);
 
-                float MarksME[] = {25,27,22};
-                pj.setMarks(MarksME);
+                float MarksMid[] = {25,27,22};
+                me.setMarksMid(MarksMid);
 
 
                 SimpleDateFormat sdf5 = new SimpleDateFormat("dd-M-yyyy");
@@ -157,9 +157,9 @@ public class ExamSystem
                     e.printStackTrace();
                 }
 
-                me.calculateTotal();
-                me.calculatePercentage();
-                me.setResult();
+                me.calculateTotalMid();
+                me.calculatePercentageMid();
+                me.calculateresultMid();
                 me.displayMidexaminfo();
 
 
