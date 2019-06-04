@@ -1,9 +1,11 @@
 package com.exam.Exam;
 
+import com.exam.IDisplay;
+
 import javax.security.auth.Subject;
 import java.util.Date;
 
-public class Project extends Exam {
+public class Project extends Exam implements IDisplay {
 
     private float marks[];
     private float totalMarks;
@@ -73,7 +75,7 @@ public class Project extends Exam {
     public void calculateTotal() {
 
         this.totalMarks = 0;
-        System.out.println(marks[0]);
+        //System.out.println(marks[0]);
         for (int i = 0; i < this.marks.length; i++) {
             this.totalMarks = this.totalMarks + marks[i];
 
@@ -133,23 +135,25 @@ public class Project extends Exam {
         }
 
     }
-        public void displayProjectinfo ()
+
+    @Override
+    public void Display() {
+        System.out.println("-----Project Info-----");
+
+        System.out.println("Exam Type :" + getExamType());
+        System.out.println("Exam Date :" + getExamDate());
+        System.out.println("Course Name :" + getCourseName());
+        System.out.println("Subjects ");
+        for (int i=0,j=0;i<subjectsName.length;i++,j++)
         {
-            System.out.println("-----Project Info-----");
-
-            System.out.println("Exam Type :" + getExamType());
-            System.out.println("Exam Date :" + getExamDate());
-            System.out.println("Course Name :" + getCourseName());
-            getSubjectsName();
-            System.out.println("Marks :" + getMarks());
-            System.out.println("Toatl Marks :" + getTotalMarks());
-            System.out.println("Percenatage :" + getPercentage());
-            System.out.println("Result :" + getResult());
-            System.out.println("Student Name " + getStudentName());
-            System.out.println("Project Title :" + getProjectTitle());
-            System.out.println("Number of Student in Group :" + getNoOfGroupMember());
-            System.out.println("Group Name :" + getNameOfGroup());
-
-
+            System.out.println(subjectsName[i]+" : "+marks[j]);
         }
+        System.out.println("Total Marks :" + getTotalMarks());
+        System.out.println("Percenatage :" + getPercentage()+"%");
+        System.out.println("Result :" + getResult());
+        System.out.println("Student Name " + getStudentName());
+        System.out.println("Project Title :" + getProjectTitle());
+        System.out.println("Number of Student in Group :" + getNoOfGroupMember());
+        System.out.println("Group Name :" + getNameOfGroup());
     }
+}
